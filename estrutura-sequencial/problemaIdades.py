@@ -4,4 +4,4 @@ pessoa2 = str(input("Digite seu nome: "))
 idade2 = int(input("Digite sua idade: "))
 
 media = (idade1 + idade2) / 2
-print(f"A idade media de {pessoa1} e {pessoa2} é de {media:.1f}")
+print(f"A idade media de {pessoa1} e {pessoa2} e de {media:.1f}")
