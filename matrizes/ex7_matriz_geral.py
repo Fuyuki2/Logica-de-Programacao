@@ -34,3 +34,4 @@ print(f"COLUNA ESCOLHIDA:{coluna_escolhida}")
 print("Diagonal principal:")
 for i in range(matriz):
     print(matriz[i][i], end=" ")
+print()
