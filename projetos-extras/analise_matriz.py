@@ -1,4 +1,9 @@
 from random import randint
+from colorama import Fore, Style, just_fix_windows_console
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+just_fix_windows_console()
 
 # pedir tamanho da matriz (1 a 10)
 tamanho_linha = int(input("Qual o tamanho da linha (1 a 10)? "))
@@ -51,7 +56,10 @@ for valor, qtde in valores_repetidos.items():
 print("Matriz gerada:")
 for linha in matriz:
     for valor in linha:
-        print(f"{valor:3}", end=" ")
+        if valor in repetidos:
+            print(Fore.RED + f"{valor:3}" + Style.RESET_ALL, end=" ")
+        else:
+            print(Fore.GREEN + f"{valor:3}" + Style.RESET_ALL, end=" ")
     print()
 print()
 print(f"Soma dos valores repetidos: {soma_repetidos}")
@@ -59,3 +67,16 @@ print(f"Soma dos valores não repetidos: {soma_nao_repetidos}")
 print(f"Quantidade de valores repetidos: {valores_repetidos}")
 print(f"Valores repetidos: {repetidos}")
 print(f"Valores nao repetidos: {nao_repetidos}")
+
+# Configurando o tamanho da figura
+plt.figure(figsize=(10, 6))
+
+# Criando o heatmap
+sns.heatmap(matriz, annot=True, cmap="coolwarm")
+
+# Adicionando títulos e rótulos
+plt.title("Colunas")
+plt.ylabel("Linhas")
+
+# Mostrando o gráfico
+plt.show()
